@@ -66,8 +66,8 @@ func (b *ServerGroupModelBuilder) buildInstances(c *fi.ModelBuilderContext, sg *
 	igMeta[openstack.TagKopsNetwork] = netName
 	igMeta["KopsInstanceGroup"] = ig.Name
 	igMeta["KopsRole"] = string(ig.Spec.Role)
-	igMeta[openstack.INSTANCE_GROUP_GENERATION] = fmt.Sprintf("%d", ig.GetGeneration())
-	igMeta[openstack.CLUSTER_GENERATION] = fmt.Sprintf("%d", b.Cluster.GetGeneration())
+	igMeta[openstack.INSTANCE_GROUP_GENERATION] = strconv.Itoa(ig.GetGeneration())
+	igMeta[openstack.CLUSTER_GENERATION] = strconv.Itoa(b.Cluster.GetGeneration())
 
 	if e, ok := ig.ObjectMeta.Annotations[openstack.OS_ANNOTATION+openstack.BOOT_FROM_VOLUME]; ok {
 		igMeta[openstack.BOOT_FROM_VOLUME] = e

@@ -161,7 +161,7 @@ func reflectRecursive(path string, v reflect.Value, visitor visitorFunc) error {
 		for i := 0; i < len; i++ {
 			av := v.Index(i)
 
-			childPath := path + "[" + fmt.Sprintf("%d", i) + "]"
+			childPath := path + "[" + strconv.Itoa(i) + "]"
 			err := visitor(childPath, nil, av)
 			if err != nil && err != SkipReflection {
 				return err

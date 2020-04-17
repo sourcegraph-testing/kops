@@ -102,7 +102,7 @@ func indentContent(indent int, content string) string {
 			spacer = 0
 		}
 		// @step: write the line to the buffer
-		line := fmt.Sprintf("%"+fmt.Sprintf("%d", spacer)+"s%s", "", x)
+		line := fmt.Sprintf("%"+strconv.Itoa(spacer)+"s%s", "", x)
 		b.WriteString(line)
 
 		// @check if we need a newline
